@@ -1,0 +1,30 @@
+<ion-header style="background-color: #000000 !important;">
+  <div style="background-color: #000000 !important;">
+    <ion-button style="background-color: #000000 !important;" fill="clear" (click)="stopCamera()" id="close">
+      <ion-icon name="close-outline" slot="icon-only"></ion-icon>
+    </ion-button>
+  </div>
+</ion-header>
+
+<ion-content>
+  <video [hidden]="!useCamera" width="100%" height="100%" style="min-height: 80vh; object-fit: cover !important; position: relative;" #videoElement>
+    <canvas id="target-canvas" style="min-height: 80vh"></canvas>
+  </video>
+  
+
+  <span *ngIf="isLoading" style="box-shadow: 1px 1px #fff; position: absolute;bottom: 50px;width: 100%; height: 5px; padding-right: 10%; padding-left: 10%;" slot="fixed">
+    <ion-progress-bar [color]="stepperStatus" [value]="progress"></ion-progress-bar>
+  </span>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <span *ngIf="!isLoading" style="font-size: 16px; margin-left: -7px; margin-bottom: 20px; text-shadow: 2px 2px #000000; color: #fff;">Start Scan</span><br>
+    <ion-fab-button *ngIf="!isLoading" [disabled]="isLoading || !isReady" (click)="authenticate()">
+      <ion-icon name="scan-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button style="color: white;" *ngIf="!isLoading" [disabled]="isLoading || !isReady" (click)="flipCamera()">
+      <ion-icon name="sync"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

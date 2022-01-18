@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Reference Image
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="small">Reference Image</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row>
+    <ion-col size="12" style="height: 80vh;">
+      <ion-img style="height: 80vh; object-fit: cover; object-position: center;" *ngIf="photoService.photo !== undefined" [src]="photoService.photo?.webviewPath" (click)="showActionSheet()"></ion-img>
+      <ion-img style="height: 80vh; object-fit: cover; object-position: center;" *ngIf="photoService.photo === undefined" src="assets/surface1.png"></ion-img>
+    </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <span *ngIf="photoService.photo !== undefined" style="font-size: 11px; margin-left: -15px; margin-bottom: 20px; text-shadow: 2px 2px #000000; color: #fff;">Validate Reference</span><br>
+    <span *ngIf="photoService.photo === undefined" style="font-size: 14px; margin-left: -36px; margin-bottom: 20px; text-shadow: 2px 2px #fff; color: #000;">Set Reference Image</span><br>
+    <ion-fab-button *ngIf="photoService.photo === undefined" (click)="photoService.addNewToGallery()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+    <span *ngIf="photoService.photo !== undefined">
+      <ion-fab-button (click)="validateReference()">
+        <ion-icon name="checkmark-done-outline"></ion-icon>
+      </ion-fab-button>
+    </span>
+  </ion-fab>
+</ion-content>

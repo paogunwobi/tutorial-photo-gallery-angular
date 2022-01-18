@@ -18,22 +18,22 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab2',
+        path: 'validation',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../validation/validation.module').then(m => m.ValidationPageModule)
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'detect-face',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../detect-face/detect-face.module').then(m => m.DetectFacePageModule)
           }
         ]
       },

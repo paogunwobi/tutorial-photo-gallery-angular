@@ -1,0 +1,71 @@
+ion-content {
+  --background: translucent;
+  margin-top: -10px;
+}
+
+ion-header {
+  background-color: #000;
+}
+
+.scan {
+  &::before, &::after {
+    border-radius: 100%;
+    box-sizing: inherit;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &::before {
+    border: 2px solid transparent;
+  }
+
+  &:hover::before {
+    border-bottom-color: #4f7b81;
+    border-right-color: #4f7b81;
+    border-top-color: #4f7b81;
+
+    transition:
+      border-top-color 0.15s linear,
+      border-right-color 0.15s linear 0.10s,
+      border-bottom-color 0.15s linear 0.20s;
+  }
+
+  &::after {
+    border: 0 solid transparent;
+  }
+
+  &:hover::after {
+    border-top: 2px solid #4f7b81;
+    border-left-width: 2px;
+    border-right-width: 2px;
+    transform: rotate(270deg);
+    transition:
+      transform 0.4s linear 0s,
+      border-left-width 0s linear 0.35s;
+  }
+
+  video {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    min-height: 100% !important;
+    object-fit: cover !important;
+  }
+  
+  .video {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    min-height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .toolbar-container {
+    background-color: #000000 !important;
+  }
+
+}
